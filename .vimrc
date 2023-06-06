@@ -17,9 +17,7 @@ set hidden
 
 set modifiable
 
-set expandtab
-set shiftwidth=3
-set softtabstop=3
+set tabstop=3
 
 " Fold manually
 set foldmethod=manual
@@ -54,7 +52,7 @@ set wildignore=*.jpg,*.png,*.gif,*.bmp,*.tiff,*.psd,*.img,        "Images
               \*.pdf,*.doc,*.xls,*.ppt,*.docx,*.odt,              "Documents
               \*.zip,*.rar,*.7z,*.tar,*.gz,                       "Archive
               \*.mdb,*accde,*.frm,*.sqlite,                       "Database
-              \*.exe,*.dll,*.so,*.class,*.a,*.o,*.lib
+              \*.exe,*.dll,*.so,*.class,*.a,*.o,*.lib             "Executable
 
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
@@ -81,9 +79,7 @@ set hlsearch
 " Set the commands to save in history default number is 20.
 set history=1000
 
-set list
-
-set listchars=eol:¬,tab:→·,trail:~,extends:>,precedes:<,space:·
+set list listchars=eol:¬,tab:→\ ,trail:~,extends:>,precedes:<,space:·
 
 " Resize window width easily
 nmap          <C-W>>     <C-W>><SID>ws
@@ -93,14 +89,17 @@ nn <script>   <SID>ws<   <C-W><<SID>ws
 nmap          <SID>ws    <Nop>
 
 " PageUp or PageDown keys for buffer
-nnoremap <leader>h :bprevious<CR>
-nnoremap <leader>l :bnext<CR>
+nnoremap <silent> <leader>h :bprevious<CR>
+nnoremap <silent> <leader>l :bnext<CR>
 
-autocmd InsertEnter,InsertLeave * set cul!
+" Add a cursor line when entering
+"autocmd InsertEnter,InsertLeave * set cul!
 
-autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%"))
+" Rename tmux windows
+"autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%"))
 
-au InsertLeave,TextChanged * if &readonly == 0 && filereadable(bufname('%')) | silent write | endif
+" Automatic saving
+" au InsertLeave,TextChanged * if &readonly == 0 && filereadable(bufname('%')) | silent write | endif
 
 " Turn relative numbers on or off based on where the focus is
 "augroup numbertoggle
@@ -111,5 +110,9 @@ au InsertLeave,TextChanged * if &readonly == 0 && filereadable(bufname('%')) | s
 
 " Turn syntax highlighting on.
 syntax on
+
+" Sometimes artifacts like h/j/k/l get lefts on the screen this should
+" hopefully fix that
+redraw!
 
 source ~/.vim/init.vim
