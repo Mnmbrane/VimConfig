@@ -31,7 +31,7 @@ set statusline+=%#InsertColor#%{(mode()=='i')?'\ \ --INSERT--\ ':''}
 set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ \ --REPLACE--\ ':''}
 set statusline+=%#VisualColor#%{(mode()=='v')?'\ \ --VISUAL--\ ':''}
 set statusline+=%#BranchColor#%{StatuslineGit()}
-set statusline+=%#StatusLineColor#%F
+set statusline+=%#StatusLineColor#%f
 set statusline+=%m
 set statusline+=%=
 set statusline+=\ %y

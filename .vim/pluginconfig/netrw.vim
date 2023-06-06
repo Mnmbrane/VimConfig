@@ -71,8 +71,8 @@ augroup FiletypeSpecificMappings
    au FileType netrw noremap <silent> <buffer> D :RmNetrw<CR>
    "au FileType netrw noremap <silent> <buffer> <nowait> <c-r> :Refresh<cr>
    au FileType netrw setlocal statusline=%#EndOfBuffer#
-   au FileType netrw setlocal listchars&
-   au FileType netrw setlocal listchars=eol:¬
+   "au FileType netrw setlocal listchars&
+   "au FileType netrw setlocal listchars=eol:¬
    au FileType netrw setlocal norelativenumber nonumber
    au FileType netrw setlocal nocursorcolumn
 augroup END
