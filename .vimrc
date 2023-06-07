@@ -111,8 +111,6 @@ nnoremap <silent> <leader>l :bnext<CR>
 " Turn syntax highlighting on.
 syntax on
 
-" Sometimes artifacts like h/j/k/l get lefts on the screen this should
-" hopefully fix that
-redraw!
+highlight SpecialKey ctermfg=240 ctermbg=none
 
 source ~/.vim/init.vim
