@@ -17,7 +17,7 @@ set hidden
 
 set modifiable
 
-set tabstop=3
+set tabstop=3 shiftwidth=3 softtabstop=3
 
 " Fold manually
 set foldmethod=manual
