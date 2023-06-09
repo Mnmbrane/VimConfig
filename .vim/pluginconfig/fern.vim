@@ -20,6 +20,7 @@ function! s:init_fern() abort
 	nmap <buffer> dd <Plug>(fern-action-remove)
 	nmap <buffer> <leader> <Plug>(fern-action-mark)
 endfunction
+
 augroup my-fern
 	autocmd! *
 	autocmd FileType fern call s:init_fern()
@@ -29,11 +30,6 @@ let s:toggle=0
 function! FernToggle()
 	:Fern . -drawer -toggle -width=35
 	:vertical resize 35
-	if s:toggle==0
-		let s:toggle=1
-	else
-		let s:toggle=0
-	endif
 endfunction
 
 nnoremap <silent> <leader>n :call FernToggle()<cr>
